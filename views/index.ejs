@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <title>CarnegieChat</title>
+    <link rel="icon" href="./images/icons/favicon.png">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/skeleton.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script>
+      localStorage.setItem("username", "<%= username.split("@")[0] %>");
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/jquery-3.1.0.min.js"></script>
+    <script src="./js/imagesloaded.pkgd.min.js"></script>
+    <script src="./js/scripts.js"></script>
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="sidebar-button">
+        <div class="title">New Partner</div>
+        <div class="image"><img src="./images/icons/plus.png" width=100% id="newPartner"></div>
+      </div>
+      <div class="sidebar-button">
+        <div class="title">Reveal Identity</div>
+        <div class="image"><img src="./images/icons/mask.png" width=100% id="revealYourself"></div>
+      </div>
+      <div class="sidebar-button">
+        <div class="title">Report Partner</div>
+        <div class="image"><img src="./images/icons/alert.png" width=100% id="reportButton"></div>
+      </div>
+      <div class="divider"></div>
+      <div class="sidebar-button">
+        <div class="title">Info</div>
+        <div class="image"><img src="./images/icons/info.png" width=100% id="infoButton"></div>
+      </div>
+      <div class="sidebar-button">
+        <div class="title">Logout</div>
+        <div class="image"><a href="/logout"><img src="./images/icons/logout.png" width=100%></a></div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="header">
+        <div class="title">
+          <a href=""><span class="u-carnegie">carnegie</span>chat</a>
+        </div>
+        <div class="title u-right u-noselect u-bold">Users Connected: <span id="usercount">0</span></div>
+      </div>
+      <div class="body">
+        <div id="messages"></div>
+      </div>
+      <div class="message-box">
+        <div class="content">
+          <textarea class="message-content" placeholder="Type a message..." id="m"></textarea>
+        </div>
+        <div class="actions u-noselect">
+          <div class="message-action" id="send">
+            <div class="image">
+              <img src="./images/icons/arrow.png">
+            </div>
+            <div class="title">SEND</div>
+          </div>
+          <div class="message-action" id="happy">
+            <div class="image">
+              <img src="./images/icons/happy.png">
+            </div>
+            <div class="title">HAPPY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="popup-bg" id="info">
+      <div class="center-box">
+        <div class="center-box-content">
+          <div class="title border-bottom">Welcome to <span class="u-carnegie">carnegie</span>chat!</div>
+          <div class="content u-center">
+            <p>We provide a brand new way for CMU students to connect and relate to each other.</p>
+            <p><i>Our goal is to connect the community through pleasant social interaction with strangers.</i></p>
+            <p>You will be paired with a random partner and are welcome to reveal your true identity.</p>
+            <p>This is a safe space! We hope you feel free to talk about the issues that matter to you.<br>Thanks for visiting!</p>
+            <button id="startButton">Let's Go!</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="popup-bg" id="report">
+      <div class="center-box">
+        <div class="center-box-content">
+          <div class="title border-bottom">Report Your Partner</div>
+          <div class="content">
+            <form id="report-form" style="margin:0">
+              <div class="row">
+                <textarea class="u-full-width" name="reason" placeholder="Reason for reporting..." style="resize:none; height: 15vh" required></textarea>
+              </div>
+              <div class="row">
+                <label>
+                  <input type="radio" name="report-type" value="bullying" required>
+                  <span class="label-body" style="padding-right:50px;">Bullying</span>
+                  <input type="radio" name="report-type" value="health concern" required>
+                  <span class="label-body">Health Concern</span>
+                </label>
+              </div>
+              <div class="row">
+                <button id="reportPartner" style="border-color:#b00;color:#b00;">Report</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </body>
+</html>

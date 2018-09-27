@@ -1,0 +1,53 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>CarnegieChat - Log In</title>
+    <link rel="icon" href="./images/icons/favicon.png">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/skeleton.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+<div class="container">
+
+<div style="margin-top:23vh;margin-bottom:20vh">
+  
+  <h1 class="u-center u-noselect" style="margin-bottom:5px"><span class="u-carnegie">carnegie</span>chat</h1>
+  <h6 class="u-center u-noselect" style="margin-bottom:30px;">Connecting the CMUnity, one chat at a time.</h6>
+
+    <!-- show any messages that come back with authentication -->
+    <% if (message.length > 0) { %>
+      <div class="error-msg">
+        <p style="text-align:center; margin: 0"><b><%= message %></b></p>
+      </div>
+    <% } %>
+
+    <!-- LOGIN FORM -->
+    <form method="post" id="login">
+      <div class="row">
+        <div class="three columns">&nbsp;</div>
+        <div class="six columns">
+            <label>Andrew Email</label>
+            <input type="text" name="email" class="u-full-width">
+        </div>
+      </div>
+      <div class="row">
+        <div class="three columns">&nbsp;</div>
+        <div class="six columns">
+            <label>Password</label>
+            <input type="password" name="password" class="u-full-width">
+        </div>
+      </div>
+      
+      <div class="row u-center">
+        <button type="submit" formaction="/login" class="btn-carnegie">Login</button>
+        <button type="submit" formaction="/signup">Sign Up</button>
+      </div>
+    </form>
+
+</div>
+
+</div>
+</body>
+</html>
